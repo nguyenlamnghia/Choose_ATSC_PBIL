@@ -1,0 +1,51 @@
+{
+  "random_seed": 42,
+  "sumo": {
+    "config_file": "data/input/sumo/test.sumocfg",
+    "net_file": "data/input/sumo/test.net.xml",
+    "rou_file": "data/input/sumo/test-demo.rou.xml",
+    "gui": true,
+    "add_file": null,
+    "begin": 0,
+    "end": 3600,
+    "step_length": 0.1,
+    "lateral_resolution": 0.1,
+    "warmup": 0
+  },
+  "controllers": {
+    "default": {
+      "name": "fixed_time",
+      "params": {
+        "program_id": "0"
+      }
+    },
+    "adaptive": {
+      "name": "max_pressure",
+      "params": {
+        "min_green": 10.0,
+        "yellow": 3.0,
+        "all_red": 1.0
+      }
+    },
+    "overrides": {}
+  },
+  "objective": "avg_network_density",
+  "pbil": {
+    "Gmax": 3,
+    "population": 3,
+    "lr_pos": 0.2,
+    "lr_neg": 0.05,
+    "mutation_rate": 0.1,
+    "mutation_step": 0.05,
+    "prob_min": 0.05,
+    "prob_max": 0.95,
+    "convergence_eps": 0.0001
+  },
+  "constraints": {
+    "Nmax": 2
+  },
+  "logging": {
+    "stdout": true,
+    "save_every_gen": true
+  }
+}

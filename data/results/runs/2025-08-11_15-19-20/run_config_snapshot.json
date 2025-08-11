@@ -1,0 +1,51 @@
+{
+  "sumo": {
+    "sumocfg": "data/input/sumo/test.sumocfg",
+    "net_file": "data/input/sumo/test.net.xml",
+    "rou_file": "data/input/sumo/test-demo.rou.xml",
+    "add_file": null,
+    "begin": 0,
+    "end": 3600,
+    "gui": true,
+    "step_length": 0.1,
+    "steps_delay": 100,
+    "lateral_resolution": 0.1
+  },
+  "controllers": {
+    "default": {
+      "name": "fixed_time",
+      "params": {
+        "program_id": "0"
+      }
+    },
+    "max_pressure": {
+      "name": "max_pressure",
+      "params": {
+        "phase_split_function": "linear",
+        "max_delta_green": 5,
+        "default_no_signal": 0
+      }
+    }
+  },
+  "pbil": {
+    "Gmax": 3,
+    "population": 3,
+    "lr_pos": 0.2,
+    "lr_neg": 0.05,
+    "mutation_rate": 0.1,
+    "mutation_step": 0.05,
+    "prob_min": 0.05,
+    "prob_max": 0.95,
+    "convergence_eps": 0.0001,
+    "N_max": 100,
+    "candidate_tls_ids": [
+      "1",
+      "8",
+      "18"
+    ]
+  },
+  "logging": {
+    "stdout": true,
+    "save_every_gen": true
+  }
+}

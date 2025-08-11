@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "choose-atsc-pbil"
+version = "0.1.0"
+description = "Adaptive traffic signal control: PBIL + pluggable controllers for SUMO"
+authors = ["Nghia-hust <nguyenlamnghia2003@gmail.com>"]
+readme = "README.md"
+# Khai báo src layout: include tên PACKAGE thật, from="src"
+packages = [{ include = "choose_atsc_pbil", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+networkx = ">=3.5,<4.0"
+numpy = ">=2.3.2,<3.0.0"
+
+[tool.poetry.scripts]
+build-graph = "choose_atsc_pbil.cli.build_graph:main"
+run-baselines = "choose_atsc_pbil.cli.run_baselines:main"
+run-custom = "choose_atsc_pbil.cli.run_custom:main"
+run-pbil = "choose_atsc_pbil.cli.run_pbil:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+black = "^25.1.0"
+ruff = "^0.12.8"
+libsumo = "^1.24.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

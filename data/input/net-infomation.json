@@ -1,0 +1,615 @@
+{
+  "tls": {
+    "1": {
+      "cycle": 92,
+      "yellow": 3,
+      "all_red": 1,
+      "min_green": 8,
+      "max_green": 60,
+      "edges": [
+        {
+          "id": "-3",
+          "detector": "e2det_-3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "3",
+          "detector": "e2det_3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "-9",
+          "detector": "e2det_-9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "9",
+          "detector": "e2det_9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "-7",
+          "detector": "e2det_-7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "7",
+          "detector": "e2det_7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "-11",
+          "detector": "e2det_-11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "11",
+          "detector": "e2det_11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        }
+      ],
+      "movements": [
+        {
+          "id": 0,
+          "inEdge": "-3",
+          "outEdge": "7",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 1,
+          "inEdge": "-3",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 2,
+          "inEdge": "-3",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 3,
+          "inEdge": "-9",
+          "outEdge": "11",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 4,
+          "inEdge": "-9",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 5,
+          "inEdge": "-9",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 6,
+          "inEdge": "-7",
+          "outEdge": "3",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 7,
+          "inEdge": "-7",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 8,
+          "inEdge": "-7",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 9,
+          "inEdge": "-11",
+          "outEdge": "9",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 10,
+          "inEdge": "-11",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 11,
+          "inEdge": "-11",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        }
+      ],
+      "phases": [
+        {
+          "id": 0,
+          "type": "green",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 42
+        },
+        {
+          "id": 1,
+          "type": "yellow",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 3
+        },
+        {
+          "id": 2,
+          "type": "all-red",
+          "duration": 1
+        },
+        {
+          "id": 3,
+          "type": "green",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 42
+        },
+        {
+          "id": 4,
+          "type": "yellow",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 3
+        },
+        {
+          "id": 5,
+          "type": "all-red",
+          "duration": 1
+        }
+      ]
+    },
+    "8": {
+      "cycle": 92,
+      "yellow": 3,
+      "all_red": 1,
+      "min_green": 8,
+      "max_green": 60,
+      "edges": [
+        {
+          "id": "-3",
+          "detector": "e2det_-3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "3",
+          "detector": "e2det_3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "-9",
+          "detector": "e2det_-9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "9",
+          "detector": "e2det_9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "-7",
+          "detector": "e2det_-7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "7",
+          "detector": "e2det_7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "-11",
+          "detector": "e2det_-11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "11",
+          "detector": "e2det_11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        }
+      ],
+      "movements": [
+        {
+          "id": 0,
+          "inEdge": "-3",
+          "outEdge": "7",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 1,
+          "inEdge": "-3",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 2,
+          "inEdge": "-3",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 3,
+          "inEdge": "-9",
+          "outEdge": "11",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 4,
+          "inEdge": "-9",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 5,
+          "inEdge": "-9",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 6,
+          "inEdge": "-7",
+          "outEdge": "3",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 7,
+          "inEdge": "-7",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 8,
+          "inEdge": "-7",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 9,
+          "inEdge": "-11",
+          "outEdge": "9",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 10,
+          "inEdge": "-11",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 11,
+          "inEdge": "-11",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        }
+      ],
+      "phases": [
+        {
+          "id": 0,
+          "type": "green",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 42
+        },
+        {
+          "id": 1,
+          "type": "yellow",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 3
+        },
+        {
+          "id": 2,
+          "type": "all-red",
+          "duration": 1
+        },
+        {
+          "id": 3,
+          "type": "green",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 42
+        },
+        {
+          "id": 4,
+          "type": "yellow",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 3
+        },
+        {
+          "id": 5,
+          "type": "all-red",
+          "duration": 1
+        }
+      ]
+    },
+    "18": {
+      "cycle": 92,
+      "yellow": 3,
+      "all_red": 1,
+      "min_green": 8,
+      "max_green": 60,
+      "edges": [
+        {
+          "id": "-3",
+          "detector": "e2det_-3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "3",
+          "detector": "e2det_3_0",
+          "sat_flow": 1800,
+          "length": 216.48,
+          "speed": 13.89
+        },
+        {
+          "id": "-9",
+          "detector": "e2det_-9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "9",
+          "detector": "e2det_9_0",
+          "sat_flow": 1800,
+          "length": 193.72,
+          "speed": 13.89
+        },
+        {
+          "id": "-7",
+          "detector": "e2det_-7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "7",
+          "detector": "e2det_7_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "-11",
+          "detector": "e2det_-11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        },
+        {
+          "id": "11",
+          "detector": "e2det_11_0",
+          "sat_flow": 1800,
+          "length": 194.59,
+          "speed": 13.89
+        }
+      ],
+      "movements": [
+        {
+          "id": 0,
+          "inEdge": "-3",
+          "outEdge": "7",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 1,
+          "inEdge": "-3",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 2,
+          "inEdge": "-3",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 3,
+          "inEdge": "-9",
+          "outEdge": "11",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 4,
+          "inEdge": "-9",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 5,
+          "inEdge": "-9",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 6,
+          "inEdge": "-7",
+          "outEdge": "3",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 7,
+          "inEdge": "-7",
+          "outEdge": "9",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 8,
+          "inEdge": "-7",
+          "outEdge": "11",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 9,
+          "inEdge": "-11",
+          "outEdge": "9",
+          "turn_ratio": 0.6
+        },
+        {
+          "id": 10,
+          "inEdge": "-11",
+          "outEdge": "3",
+          "turn_ratio": 0.2
+        },
+        {
+          "id": 11,
+          "inEdge": "-11",
+          "outEdge": "7",
+          "turn_ratio": 0.2
+        }
+      ],
+      "phases": [
+        {
+          "id": 0,
+          "type": "green",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 42
+        },
+        {
+          "id": 1,
+          "type": "yellow",
+          "movements": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8
+          ],
+          "duration": 3
+        },
+        {
+          "id": 2,
+          "type": "all-red",
+          "duration": 1
+        },
+        {
+          "id": 3,
+          "type": "green",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 42
+        },
+        {
+          "id": 4,
+          "type": "yellow",
+          "movements": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "duration": 3
+        },
+        {
+          "id": 5,
+          "type": "all-red",
+          "duration": 1
+        }
+      ]
+    }
+  },
+  "edges": [],
+  "juntions": []
+}

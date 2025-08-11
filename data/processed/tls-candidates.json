@@ -1,0 +1,11 @@
+{
+  "candidate_tls_ids": [
+    "TLS_0",
+    "TLS_1",
+    "TLS_2"
+  ],
+  "Nmax": 2,
+  "meta": {
+    "picked_by": "scaffold"
+  }
+}

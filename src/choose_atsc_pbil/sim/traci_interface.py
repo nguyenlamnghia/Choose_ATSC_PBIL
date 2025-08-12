@@ -8,7 +8,7 @@ try:
 except Exception as e:
     traci = None
 
-from ..controllers.base_controller import TLSObservation
+# from ..controllers.base_controller import TLSObservation
 
 class TraciIF:
     def __init__(self, sumo_cfg: dict):
@@ -48,7 +48,7 @@ class TraciIF:
 
     def close(self):
         if self._running:
-            traci.close(False)
+            traci.close()
             self._running = False
 
     def step(self):
@@ -66,11 +66,39 @@ class TraciIF:
 
     def list_tls_ids(self)->List[str]:
         return list(traci.trafficlight.getIDList())
+    
+    def get_current_phase(self, tls_id: str) -> int:
+        """Lấy pha hiện tại của đèn giao thông."""
+        return traci.trafficlight.getPhase(tls_id)
+
+    def get_time(self) -> float:
+        """Lấy thời gian mô phỏng hiện tại."""
+        return traci.simulation.getTime()
+    
+    def get_list_edge(self):
+        return traci.edge.getIDList()
+
+    def get_edge_occupancy(self, edge_id: str) -> float:
+        """Lấy thông tin lưu lượng của một đoạn đường."""
+        return traci.edge.getLastStepOccupancy(edge_id)
+
+    def get_total_vehicle(self):
+        """Lấy tổng số phương tiện trên một đoạn đường."""
+        return traci.vehicle.getIDCount()
+
+    def set_phase(self, tls_id: str, phase_index: int):
+        """Set the current phase of the traffic light."""
+        traci.trafficlight.setPhase(tls_id, phase_index)
+
+    def set_duration(self, tls_id: str, duration: float):
+        """Set the duration of the current phase."""
+        # Note: This is a simplified version, real implementation should handle yellow/all-red phases
+        traci.trafficlight.setPhaseDuration(tls_id, duration)
 
     def _phase_elapsed(self, tls_id: str) -> float:
         return traci.trafficlight.getPhaseDuration(tls_id) - traci.trafficlight.getNextSwitch(tls_id) + traci.simulation.getTime()
 
-    def observe_tls(self, tls_id: str, ctrl_name: str) -> TLSObservation:
+    def observe_tls(self, tls_id: str, ctrl_name: str):
 
         # handle for max_pressure
         if ctrl_name == "max_pressure":
@@ -109,12 +137,16 @@ class TraciIF:
 
     def safe_switch(self, tls_id: str, next_phase: int, min_green: float, yellow: float, all_red: float):
         # Very simplified: directly set phase (real implementation should insert yellow/all-red safety)
-        traci.trafficlight.setPhase(tls_id, int(next_phase))
+        # traci.trafficlight.setPhase(tls_id, int(next_phase))
+        pass
 
-    def set_splits(self, tls_id: str, cycle_length: float, splits: Dict[int, float]):
+    def set_splits(self, tls_id: str, splits):
         # Simplified: set phase duration for the current cycle; full implementation would rebuild a program
         # Here we no-op to keep it safe for a scaffold; SUMO program editing is non-trivial.
-        pass
+        traci.trafficlight.setCompleteRedYellowGreenDefinition(tls_id, splits)
+
+    def get_splits(self, tls_id):
+        return traci.trafficlight.getCompleteRedYellowGreenDefinition(tls_id)[0]
 
     def snapshot_network_density(self) -> float:
         lanes = traci.lane.getIDList()

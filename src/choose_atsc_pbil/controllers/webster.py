@@ -4,7 +4,6 @@ from . import register
 
 @register("webster")
 class Webster(BaseController):
-    decision_hz = 0.1  # quyết định ~ mỗi 10 giây (tuỳ)
     def decide(self, obs: TLSObservation) -> ControllerAction:
         # tính C*, splits theo Webster từ lưu lượng lịch sử/hiện tại
         C = 90.0

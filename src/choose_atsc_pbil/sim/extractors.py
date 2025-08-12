@@ -38,7 +38,6 @@ def sumo_net_to_nx_graph(net_file: str, out_json: str):
     
     for tls in root.findall("tlLogic"):
         tls_id = tls.attrib.get("id")
-        # print(f"TLS ID: {tls_id}")
         phases = []
         phase_durations = []
 

@@ -24,7 +24,7 @@
             "name": "max_pressure",
             "params": {
                 "sample_interval": 10.0,
-                "phase_split_function": "linear",
+                "cycling": "linear",
                 "max_delta_green": 5,
                 "default_no_signal": 0
             }

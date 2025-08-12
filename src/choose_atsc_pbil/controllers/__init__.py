@@ -9,10 +9,10 @@ def register(name: str):
         return cls
     return deco
 
-def build(name: str, tls_id: str, **params) -> BaseController:
+def build(name: str, tls_id: str, iface, **params) -> BaseController:
     if name not in REGISTRY:
         raise KeyError(f"Unknown controller: {name}")
-    return REGISTRY[name](tls_id=tls_id, **params)
+    return REGISTRY[name](tls_id=tls_id, iface=iface, **params)
 
 # 👇 Thêm dòng này (eager import để chạy decorator @register)
 from . import fixed_time, max_pressure # noqa: F401

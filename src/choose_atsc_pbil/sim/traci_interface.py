@@ -78,6 +78,9 @@ class TraciIF:
     def get_list_edge(self):
         return traci.edge.getIDList()
 
+    def get_lanearea_occupancy(self, detector_id: str) -> float:
+        return traci.lanearea.getLastStepOccupancy(detector_id)
+
     def get_edge_occupancy(self, edge_id: str) -> float:
         """Lấy thông tin lưu lượng của một đoạn đường."""
         return traci.edge.getLastStepOccupancy(edge_id)
@@ -140,12 +143,12 @@ class TraciIF:
         # traci.trafficlight.setPhase(tls_id, int(next_phase))
         pass
 
-    def set_splits(self, tls_id: str, splits):
+    def set_tls_splits(self, tls_id: str, splits):
         # Simplified: set phase duration for the current cycle; full implementation would rebuild a program
         # Here we no-op to keep it safe for a scaffold; SUMO program editing is non-trivial.
         traci.trafficlight.setCompleteRedYellowGreenDefinition(tls_id, splits)
 
-    def get_splits(self, tls_id):
+    def get_tls_splits(self, tls_id):
         return traci.trafficlight.getCompleteRedYellowGreenDefinition(tls_id)[0]
 
     def snapshot_network_density(self) -> float:

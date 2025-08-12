@@ -5,7 +5,6 @@ import numpy as np
 
 from .traci_interface import TraciIF
 from ..controllers import build as build_controller
-# from ..controllers.base_controller import TLSObservation, ControllerAction
 
 class SumoSimRunner:
     def __init__(self, sumo_cfg: dict, controller_plan: dict, net_info: dict):
@@ -14,10 +13,10 @@ class SumoSimRunner:
         self.net_info = net_info
         self.iface = TraciIF(sumo_cfg)
         self.controllers = {}
-        self.pbil_data_collection = []
+        self.pbil_data = []
 
     # Get data for PBIL learning
-    def get_data_for_pbil(self):
+    def _sample_for_pbil(self):
 
         # By occupancy
         # edges = self.iface.get_list_edge()
@@ -40,11 +39,11 @@ class SumoSimRunner:
             # Bơm tls_info từ net vào cho Adaptive
             tls_info = self.net_info["tls"][tls_id]
             params.setdefault("tls_info", tls_info)
-            return build_controller(spec["name"], tls_id, **params)
+            return build_controller(spec["name"], tls_id, self.iface, **params)
         # For default
         spec = self.controller_plan["default"]
         params = dict(spec.get("params", {}))
-        return build_controller(spec["name"], tls_id, **params)
+        return build_controller(spec["name"], tls_id, self.iface, **params)
 
     def run(self, adaptive_mask: Dict[str,bool], sample_interval: float) -> dict:
         self.iface.start()
@@ -55,6 +54,9 @@ class SumoSimRunner:
             for tls_id in tls_ids:
                 ctrl = self._controller_for(tls_id, adaptive_mask)
                 self.controllers[tls_id] = ctrl
+
+                # start controller
+                self.controllers[tls_id].start()
 
             t = self.iface.begin_time()
             end = self.iface.end_time()
@@ -73,30 +75,23 @@ class SumoSimRunner:
                 next_time = min(next_sampling, next_action)
                 self.iface.step_to(next_time)
                 t = next_time
+                print(f"[*] Simulator Time: {t}")
 
                 if next_time == next_action:
                     # get tls_ids next update
                     next_tls_ids = [tls_id for tls_id, action_time in next_action_list.items() if action_time == next_action]
 
                     for tls_id in next_tls_ids:
-                        next_update = self.controllers[tls_id].action(self.iface, t)
+                        next_update = self.controllers[tls_id].action(t)
                         next_action_list[tls_id] = next_update
                 
                 if next_time == next_sampling:
-                    self.pbil_data_collection.append(self.get_data_for_pbil())
+                    print("--- Sample for PBIL")
+                    # Collect data for PBIL
+                    self.pbil_data.append(self._sample_for_pbil())
 
-            print(np.mean(self.pbil_data_collection) if self.pbil_data_collection else 0)
-            return np.mean(self.pbil_data_collection) if self.pbil_data_collection else 0
+                
+
+            return np.mean(self.pbil_data) if self.pbil_data else 0
         finally:
             self.iface.close()
-
-    # def _apply_action(self, tls_id: str, action: ControllerAction):
-    #     if action.kind == "HOLD":
-    #         return
-    #     elif action.kind == "SWITCH":
-    #         self.iface.safe_switch(tls_id, next_phase=int(action.next_phase or 0))
-    #     elif action.kind == "SET_SPLITS":
-    #         if action.cycle_length and action.splits:
-    #             self.iface.set_splits(tls_id, action.cycle_length, action.splits)
-    #     elif action.kind == "SET_PROGRAM":
-    #         pass

@@ -3,6 +3,10 @@ from . import register
 
 @register("fixed_time")
 class FixedTime(BaseController):
-    def action(self, iface, t):
+
+    def start(self):
+        pass
+
+    def action(self, t):
         # no need to action
         return 999999999

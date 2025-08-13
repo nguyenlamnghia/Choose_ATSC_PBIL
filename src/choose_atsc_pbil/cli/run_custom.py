@@ -24,7 +24,7 @@ def main():
         json.dump(cfg, f, indent=2)
 
     # Baseline 1: all fixed-time
-    runner = SumoSimRunner(cfg["sumo"], cfg["controllers"], net_info)
+    runner = SumoSimRunner(cfg["sumo"], cfg["controllers"], cfg["pbil"], net_info)
     # mask_none = {}
     # r1 = runner.run(mask_none)
     # with open(os.path.join(run_dir, "baseline_all_fixed.json"), "w", encoding="utf-8") as f:
@@ -32,13 +32,12 @@ def main():
 
     # Baseline 2: all adaptive (controller_plan['adaptive'])
     # tls_ids_guess = ["1", "8", "18"]  # scaffold; replace with actual TLS IDs
-    tls_ids_guess = ["1"] 
+    tls_ids_guess = ["1", "8"] 
     # i want mask_all = {TLS_0: max-pressure, TLS_1: max-pressure, TLS_2: max-pressure}
-    mask_all = {k: "max_pressure" for k in tls_ids_guess}
+    mask_all = {k: True for k in tls_ids_guess}
+    print(mask_all)
 
-    sample_interval  = cfg["pbil"]["sample_interval"]
-
-    r2 = runner.run(mask_all, sample_interval)
+    r2 = runner.run(mask_all)
     with open(os.path.join(run_dir, "baseline_all_adaptive.json"), "w", encoding="utf-8") as f:
         json.dump(r2, f, indent=2)
 

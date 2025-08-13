@@ -18,7 +18,6 @@ class TraciIF:
         self._begin = float(sumo_cfg.get("begin", 0))
         self._end = float(sumo_cfg.get("end", 3600))
         self._step = float(sumo_cfg.get("step_length", 0.1))
-        self._snapshot_interval = float(sumo_cfg.get("snapshot_interval", 1.0))
 
     def _ensure_import(self):
         if traci is None:
@@ -79,7 +78,7 @@ class TraciIF:
         return traci.edge.getIDList()
 
     def get_lanearea_occupancy(self, detector_id: str) -> float:
-        return traci.lanearea.getLastStepOccupancy(detector_id)
+        return traci.lanearea.getLastIntervalOccupancy(detector_id)
 
     def get_edge_occupancy(self, edge_id: str) -> float:
         """Lấy thông tin lưu lượng của một đoạn đường."""

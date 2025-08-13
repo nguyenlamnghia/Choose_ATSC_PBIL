@@ -6,7 +6,7 @@
         "rou_file": "data/input/sumo/test-demo.rou.xml",
         "add_file": null,
         "begin": 0,
-        "end": 3600,
+        "end": 200,
         "gui": true,
         "step_length": 0.1,
         "steps_delay": 100,
@@ -24,7 +24,7 @@
             "name": "max_pressure",
             "params": {
                 "sample_interval": 10.0,
-                "cycling": "linear",
+                "cycling": "exponential",
                 "max_delta_green": 5,
                 "default_no_signal": 0
             }
@@ -33,7 +33,7 @@
     "pbil": 
     {
         "Gmax": 3,
-        "population": 3,
+        "population": 2,
         "lr_pos": 0.2,
         "lr_neg": 0.05,
         "mutation_rate": 0.1,
@@ -41,9 +41,11 @@
         "prob_min": 0.05,
         "prob_max": 0.95,
         "convergence_eps": 0.0001,
-        "N_max": 100,
-        "candidate_tls_ids": ["1", "8", "18"],
-        "sample_interval": 10.0
+        "N_max": 1,
+        "exploit_prob": 0.5,
+        "sample_interval": 7.0,
+        "evaluation": "total_vehicle",
+        "random_seed": 123
     },
     "logging": 
     {

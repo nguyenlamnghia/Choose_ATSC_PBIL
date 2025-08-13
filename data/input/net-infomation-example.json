@@ -2,10 +2,7 @@
   "tls": {
     "1": {
       "cycle": 92,
-      "yellow": 3,
-      "all_red": 1,
-      "min_green": 8,
-      "max_green": 60,
+      "controller": "max_pressure",
       "edges": {
         "-3": {"sat_flow": 1800, "length": 216.48, "speed": 13.89, "detector": ["e2det_-3_0"]},
         "3": {"sat_flow": 1800, "length": 216.48, "speed": 13.89, "detector": ["e2det_3_0"]},
@@ -25,6 +22,30 @@
       "phases": {
         "0": {"movements": [["-3","7"], ["-3","9"], ["-3","11"], ["-7","3"], ["-7", "9"], ["-7","11"]], "duration": 42, "min-green": 15, "max-green": 120},
         "3": {"movements": [["-9","11"], ["-9","3"], ["-9","7"], ["-11","9"], ["-11","3"], ["-11","7"]], "duration": 42, "min-green": 15, "max-green": 120}
+      }
+    },
+    "8": {
+      "cycle": 92,
+      "controller": "max_pressure",
+      "edges": {
+          "-9": {"sat_flow": 1800, "length": 216.48, "speed": 13.89, "detector": ["e2det_-9_0"]},
+          "9": {"sat_flow": 1800, "length": 216.48, "speed": 13.89, "detector": ["e2det_9_0"]},
+          "-17": {"sat_flow": 1800, "length": 193.72, "speed": 13.89, "detector": ["e2det_-17_0"]},
+          "17": {"sat_flow": 1800, "length": 193.72, "speed": 13.89, "detector": ["e2det_17_0"]},
+          "-19": {"sat_flow": 1800, "length": 194.59, "speed": 13.89, "detector": ["e2det_-19_0"]},
+          "19": {"sat_flow": 1800, "length": 194.59, "speed": 13.89, "detector": ["e2det_19_0"]},
+          "-25": {"sat_flow": 1800, "length": 194.59, "speed": 13.89, "detector": ["e2det_-25_0"]},
+          "25": {"sat_flow": 1800, "length": 194.59, "speed": 13.89, "detector": ["e2det_25_0"]}
+      },
+      "movements": {
+          "9": {"19": 0.60, "17": 0.20, "25": 0.20},
+          "-17": {"25": 0.60, "19": 0.20, "-9": 0.20},
+          "-19": {"-9": 0.60, "25": 0.20, "17": 0.20},
+          "-25": {"17": 0.60, "-9": 0.20, "19": 0.20}
+      },
+      "phases": {
+        "0": {"movements": [["-25","17"], ["-25","-9"], ["-25","19"], ["-17","25"], ["-17", "19"], ["-17","-9"]], "duration": 42, "min-green": 15, "max-green": 120},
+        "3": {"movements": [["-19","-9"], ["-19","25"], ["-19","17"], ["9","19"], ["9","17"], ["9","25"]], "duration": 42, "min-green": 15, "max-green": 120}
       }
     }
   },

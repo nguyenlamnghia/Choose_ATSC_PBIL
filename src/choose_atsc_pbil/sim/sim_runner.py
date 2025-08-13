@@ -7,33 +7,38 @@ from .traci_interface import TraciIF
 from ..controllers import build as build_controller
 
 class SumoSimRunner:
-    def __init__(self, sumo_cfg: dict, controller_plan: dict, net_info: dict):
+    def __init__(self, sumo_cfg: dict, controller_plan: dict, pbil_cfg: dict, net_info: dict):
         self.sumo_cfg = sumo_cfg
         self.controller_plan = controller_plan
+        self.pbil_cfg = pbil_cfg
         self.net_info = net_info
         self.iface = TraciIF(sumo_cfg)
         self.controllers = {}
-        self.pbil_data = []
 
-    # Get data for PBIL learning
-    def _sample_for_pbil(self):
+    # Collect data
+    def _collect_data(self, collected_data):
+        # Collect Total Vehicle
+        collected_data["total_vehicle"].append(self.iface.get_total_vehicle())
 
-        # By occupancy
-        # edges = self.iface.get_list_edge()
-        # total_occupancy = 0
-        # for edge in edges:
-        #     total_occupancy += self.iface.get_edge_occupancy(edge)
+        # Collect Average Occupancy
+        edges = self.iface.get_list_edge()
+        total_occupancy = 0
+        for edge in edges:
+            total_occupancy += self.iface.get_edge_occupancy(edge)
 
-        # average_occupancy = total_occupancy / len(edges) if edges else 0
-        # return average_occupancy
-    
-        # By total vehicle
-        return self.iface.get_total_vehicle()
+        average_occupancy = total_occupancy / len(edges) if edges else 0
+        collected_data["average_occupancy"].append(average_occupancy)
+
+
+        return collected_data
 
     def _controller_for(self, tls_id: str, adaptive_mask: dict):
         # For Adaptive
         if adaptive_mask.get(tls_id):
-            spec = self.controller_plan[adaptive_mask.get(tls_id)]
+            # spec = self.controller_plan[adaptive_mask.get(tls_id)]
+            # print(spec)
+            spec = self.controller_plan[self.net_info["tls"][tls_id]["controller"]]
+            print(spec)
             params = dict(spec.get("params", {}))
 
             # Bơm tls_info từ net vào cho Adaptive
@@ -45,7 +50,14 @@ class SumoSimRunner:
         params = dict(spec.get("params", {}))
         return build_controller(spec["name"], tls_id, self.iface, **params)
 
-    def run(self, adaptive_mask: Dict[str,bool], sample_interval: float) -> dict:
+    def run(self, adaptive_mask: Dict[str,bool]) -> dict:
+
+        # Init collected data
+        collected_data = {
+            "total_vehicle": [],
+            "average_occupancy": []
+        }
+
         self.iface.start()
         try:
             tls_ids = self.iface.list_tls_ids()
@@ -57,6 +69,9 @@ class SumoSimRunner:
 
                 # start controller
                 self.controllers[tls_id].start()
+
+            # Get sample interval PBIL
+            sample_interval  = self.pbil_cfg["sample_interval"]
 
             t = self.iface.begin_time()
             end = self.iface.end_time()
@@ -88,10 +103,8 @@ class SumoSimRunner:
                 if next_time == next_sampling:
                     print("--- Sample for PBIL")
                     # Collect data for PBIL
-                    self.pbil_data.append(self._sample_for_pbil())
+                    self._collect_data(collected_data)
 
-                
-
-            return np.mean(self.pbil_data) if self.pbil_data else 0
+            return collected_data
         finally:
             self.iface.close()

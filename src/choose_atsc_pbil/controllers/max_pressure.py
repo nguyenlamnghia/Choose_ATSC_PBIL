@@ -77,7 +77,7 @@ class MaxPressure(BaseController):
             # Get sum out_edge by ratio
             for out_edge, ratio in data.items():
                 out_pressure = edges_occupancy[out_edge] * ratio
-            movements_pressure[from_edge] = edges_occupancy[from_edge] - out_pressure
+            movements_pressure[from_edge] = (edges_occupancy[from_edge] - out_pressure) * self.edges[from_edge]["sat_flow"]
         
         # calculate phases pressure
         phases_pressure = {}
@@ -108,13 +108,14 @@ class MaxPressure(BaseController):
                 for phase in phases_pressure:
                     greentimes[phase] = (phases_pressure[phase] / total_phase_pressures) * total_greentime
             elif self.cycling == "exponential":
-                pass
-                # Simple exponential weighting
-                # exp_pressures = [math.exp(pressure / total_phase_pressures) for pressure in phase_pressures]
-                # exp_sum = sum(exp_pressures)
-                # greentimes = [(exp_p / exp_sum) * total_greentime for exp_p in exp_pressures]
+                exp_pressures = [math.exp(phases_pressure[phase] / total_phase_pressures) for phase in phases_pressure]
+                total_exp_pressures = sum(exp_pressures)
+                for i, phase in enumerate(phases_pressure):
+                    greentimes[phase] = (exp_pressures[i] / total_exp_pressures) * total_greentime
+
             else:
                 raise ValueError("Cycling method not recognized. Use 'linear' or 'exponential'.")
+        print(greentimes)
         return greentimes
         
             
@@ -175,7 +176,7 @@ class MaxPressure(BaseController):
     def action(self, t):
         # Perform action every sample interval
         if int(t) % int(self.sample_interval) == 0:
-            print(f"--- Sample for {self.tls_id}")
+            print(f"--- Sample for TLS ID {self.tls_id}")
             self._sample_action()
 
         # Perform action every cycle time

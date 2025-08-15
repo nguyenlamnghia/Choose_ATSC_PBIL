@@ -30,7 +30,15 @@ class MaxPressure(BaseController):
             edge_occupancy = []
             for detector in data["detector"]:
                 edge_occupancy.append(self.iface.get_lanearea_occupancy(detector))
-            self.cache_edges_occupancy[edge].append(np.mean(edge_occupancy))
+
+            # if edge have detector
+            if edge_occupancy:
+                self.cache_edges_occupancy[edge].append(np.mean(edge_occupancy))
+            # if edge has no detector
+            else:
+                self.cache_edges_occupancy[edge].append(np.float64(0))
+                # Print Warning
+                # print(f"Warning: No detector found for edge {edge}")
 
     def _set_split(self, final_greentimes, splits):
         splits = self.iface.get_tls_splits(self.tls_id)
@@ -48,7 +56,7 @@ class MaxPressure(BaseController):
 
         # Update the plan with the optimized green times
         self._set_split(final_greentimes, self.iface.get_tls_splits(self.tls_id))
-        print(f"ID: {self.tls_id} -> SPLIT {final_greentimes}")
+        print(f"Time: {self.iface.get_time()} - ID: {self.tls_id} -> MAX PRESSURE: SET CYCLE {final_greentimes}")
 
         # reset cache
         for edge in self.edges:
@@ -61,7 +69,8 @@ class MaxPressure(BaseController):
         for phase in splits.phases:
             state = phase.state.lower()
             # Count lost time for phases that are not green or are red without green
-            if "y" in state or ("r" in state and "g" not in state):
+            # Check if duration < 15 is yellow phase and all red phase
+            if phase.duration < 15:
                 lost_time += phase.duration
         return lost_time
 
@@ -87,7 +96,6 @@ class MaxPressure(BaseController):
                 phase_pressure += movements_pressure.get(movement[0], 0) * self.movements[movement[0]][movement[1]]
             phases_pressure[phase] = max(phase_pressure, 0)
 
-        print(f"PHASE PRESSURE: {phases_pressure}")
         return phases_pressure
 
     def _initialize_greentime(self, phases_pressure):
@@ -115,10 +123,10 @@ class MaxPressure(BaseController):
 
             else:
                 raise ValueError("Cycling method not recognized. Use 'linear' or 'exponential'.")
-        print(greentimes)
         return greentimes
         
-            
+    
+    # Anh Kiên Code
     def _constrain_greentimes(self, greentimes):
         """Constrain green times using simple and efficient algorithm."""
         phases = self.phases
@@ -176,12 +184,12 @@ class MaxPressure(BaseController):
     def action(self, t):
         # Perform action every sample interval
         if int(t) % int(self.sample_interval) == 0:
-            print(f"--- Sample for TLS ID {self.tls_id}")
+            # print(f"--- Sample for TLS ID {self.tls_id}")
             self._sample_action()
 
         # Perform action every cycle time
         if int(t) % int(self.cycle_time) == 0:
-            print(f"--- Cycle for TLS ID {self.tls_id}")
+            # print(f"--- Cycle for TLS ID {self.tls_id}")
             self._decide_action()
             
         # calculate next time action

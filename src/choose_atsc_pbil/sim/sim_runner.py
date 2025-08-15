@@ -36,15 +36,14 @@ class SumoSimRunner:
         # For Adaptive
         if adaptive_mask.get(tls_id):
             # spec = self.controller_plan[adaptive_mask.get(tls_id)]
-            # print(spec)
             spec = self.controller_plan[self.net_info["tls"][tls_id]["controller"]]
-            print(spec)
             params = dict(spec.get("params", {}))
 
             # Bơm tls_info từ net vào cho Adaptive
             tls_info = self.net_info["tls"][tls_id]
             params.setdefault("tls_info", tls_info)
             return build_controller(spec["name"], tls_id, self.iface, **params)
+        
         # For default
         spec = self.controller_plan["default"]
         params = dict(spec.get("params", {}))
@@ -61,6 +60,11 @@ class SumoSimRunner:
         self.iface.start()
         try:
             tls_ids = self.iface.list_tls_ids()
+
+            # Validate tls if tls not exists
+            for tls_id in adaptive_mask.keys():
+                if tls_id not in tls_ids:
+                    raise ValueError(f" TLS ID {tls_id} not found in SUMO.")
 
             # khởi tạo controller
             for tls_id in tls_ids:
@@ -90,7 +94,8 @@ class SumoSimRunner:
                 next_time = min(next_sampling, next_action)
                 self.iface.step_to(next_time)
                 t = next_time
-                print(f"[*] Simulator Time: {t}")
+                
+                # print(f"[*] Simulator Time: {t}")
 
                 if next_time == next_action:
                     # get tls_ids next update
@@ -101,7 +106,7 @@ class SumoSimRunner:
                         next_action_list[tls_id] = next_update
                 
                 if next_time == next_sampling:
-                    print("--- Sample for PBIL")
+                    # print("--- Sample for data")
                     # Collect data for PBIL
                     self._collect_data(collected_data)
 

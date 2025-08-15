@@ -58,10 +58,12 @@ def main():
             # Tạo mặt nạ được load vào, True = 1; False = 0
             mask = {tls_id: bool(x[i]) for i, tls_id in enumerate(candidates)}
             res = runner.run(mask)
+
+            # Save result to g/
+
             # Tính toán điểm số
             score = pbil.calculate_score(res)
             scores.append((x.tolist(), float(score)))
-            print(scores)
 
         # Lấy cá thể tốt nhất và tồi nhất
         best, worst = pick_best_worst(scores)

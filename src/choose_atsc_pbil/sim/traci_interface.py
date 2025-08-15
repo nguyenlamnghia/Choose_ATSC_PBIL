@@ -1,6 +1,8 @@
 import os
 from typing import List, Dict, Optional
 from dataclasses import asdict
+
+
 try:
     # import traci
     from sumolib.net import readNet
@@ -8,10 +10,10 @@ try:
 except Exception as e:
     traci = None
 
-# from ..controllers.base_controller import TLSObservation
 
 class TraciIF:
     def __init__(self, sumo_cfg: dict):
+
         self.cfg = sumo_cfg
         self._net = None
         self._running = False
@@ -36,7 +38,7 @@ class TraciIF:
             "--start",  # start simulation immediately
             "-c", self.cfg["sumocfg"],
             "--step-length", str(self._step),
-            "--lateral-resolution", str(self.cfg["lateral_resolution"])
+            "--lateral-resolution", str(self.cfg["lateral_resolution"]),
         ]
 
         add = self.cfg.get("add_file")

@@ -17,6 +17,8 @@ build-graph = "choose_atsc_pbil.cli.build_graph:main"
 run-baselines = "choose_atsc_pbil.cli.run_baselines:main"
 run-custom = "choose_atsc_pbil.cli.run_custom:main"
 run-pbil = "choose_atsc_pbil.cli.run_pbil:main"
+run_pbil_multiprocess = "choose_atsc_pbil.cli.run_pbil_multiprocess:main"
+build-net-info = "choose_atsc_pbil.cli.build_net_info:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"

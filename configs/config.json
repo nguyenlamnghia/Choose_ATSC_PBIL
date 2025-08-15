@@ -1,12 +1,13 @@
 {
     "sumo": 
     {
+        "runner": "libsumo",
         "sumocfg": "data/input/sumo/test.sumocfg",
         "net_file": "data/input/sumo/test.net.xml",
         "rou_file": "data/input/sumo/test-demo.rou.xml",
         "add_file": null,
         "begin": 0,
-        "end": 200,
+        "end": 1200,
         "gui": true,
         "step_length": 0.1,
         "steps_delay": 100,
@@ -33,7 +34,7 @@
     "pbil": 
     {
         "Gmax": 3,
-        "population": 2,
+        "population": 10,
         "lr_pos": 0.2,
         "lr_neg": 0.05,
         "mutation_rate": 0.1,
@@ -41,7 +42,7 @@
         "prob_min": 0.05,
         "prob_max": 0.95,
         "convergence_eps": 0.0001,
-        "N_max": 1,
+        "N_max": null,
         "exploit_prob": 0.5,
         "sample_interval": 7.0,
         "evaluation": "total_vehicle",

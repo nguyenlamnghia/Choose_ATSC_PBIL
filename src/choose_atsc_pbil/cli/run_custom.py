@@ -32,7 +32,7 @@ def main():
 
     # Baseline 2: all adaptive (controller_plan['adaptive'])
     # tls_ids_guess = ["1", "8", "18"]  # scaffold; replace with actual TLS IDs
-    tls_ids_guess = ["1", "8"] 
+    tls_ids_guess = ["1", "18", "12", "63"]
     # i want mask_all = {TLS_0: max-pressure, TLS_1: max-pressure, TLS_2: max-pressure}
     mask_all = {k: True for k in tls_ids_guess}
     print(mask_all)

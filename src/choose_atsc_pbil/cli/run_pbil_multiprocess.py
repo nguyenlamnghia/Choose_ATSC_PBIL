@@ -17,14 +17,14 @@ def _save(path, obj):
         json.dump(obj, f, indent=2)
 
 # Chạy mô phỏng cho một cá thể
-def _run_simulation(x, scores, scores_history, candidates, runner, pbil: PBIL):
+def _run_simulation(i, x, scores, scores_history, candidates, runner, pbil: PBIL):
 # Tạo mặt nạ được load vào, True = 1; False = 0
     mask = {tls_id: bool(x[i]) for i, tls_id in enumerate(candidates)}
     res = runner.run(mask)
 
     # Tính toán điểm số
     score = pbil.calculate_score(res)
-    print(f"[+] Process {x}: Completed -> Score: {score}")
+    print(f"[+] Process {i+1}: Completed -> Score: {score}")
 
     # Lưu kết quả vào danh sách trong quần thể
     scores.append((x, float(score)))
@@ -64,9 +64,11 @@ def main():
 
     # Khởi tạo lịch sử và biến tốt nhất
     best_hist = []
-    best_overall = None
 
     for g in range(pbil_cfg.Gmax):
+
+        print(f"\n----- Generation {g+1}: Starting... -----\n")
+
         # Lấy mẫu quần thể
         pop = pbil.sample_population()
 
@@ -80,32 +82,39 @@ def main():
         processes = []
 
         # Chạy mô phỏng cho từng cá thể trong quần thể
-        for x in pop:
+        for i, x in enumerate(pop):
             # Kiểm tra xem cá thể đã chạy chưa trong lịch sử
             for s in scores_history:
                 if s[0] == x:
                     # Chạy rồi thì add vào list score quần thể
                     scores_list.append(s)
-                    print(f"[+] Process {len(processes)}: {x} -> Skipped (already run) -> Score: {s[1]}")
+                    print(f"[+] Process {i+1}: {x} -> Skipped (already run) -> Score: {s[1]}")
                     break
             else:
                 # Chưa chạy thì khởi tạo tiến trình mới
-                p = mp.Process(target=_run_simulation, args=(x, scores_list, scores_history, candidates, runner, pbil))
+                p = mp.Process(target=_run_simulation, args=(i, x, scores_list, scores_history, candidates, runner, pbil))
                 processes.append(p)
-                print(f"[+] Process {len(processes)}: {x} -> Running ...")
+                print(f"[+] Process {i+1}: {x} -> Running ...")
                 p.start()
 
+        print("\n WAITING FOR PROCESSES TO COMPLETE... \n")
+
+        # Đợi tất cả các tiến trình kết thúc
         for p in processes:
             p.join()
+
+        
 
         # Chuyển đổi danh sách điểm số thành định dạng mong muốn
         scores = list(scores_list)
 
         # Lấy cá thể tốt nhất và tồi nhất
         best, worst = pick_best_worst(scores)
+        print(f"\n[*] Best:   {best[0]} -> Score: {best[1]}\n[*] Worst:  {worst[0]} -> Score: {worst[1]}")
 
         # Cập nhật xác suất
         p_vec = pbil.update(np.array(best[0]), np.array(worst[0]))
+        print(f"\n[*] Updated Probability Vector: \n{p_vec}")
         # Lưu lại xác suất mới
         best_hist.append(best[1])
 
@@ -116,6 +125,7 @@ def main():
 
         # Kiểm tra hội tụ
         if pbil.converged(best_hist, eps=pbil_cfg.convergence_eps):
+            print(f"\n[*] STOP BECAUSE CONVERGENCE REACHED\n")
             break
 
     # Chuyển đổi cache lưu trữ các kết quả score của toàn bộ lịch sử thành dạng list mong muốn
@@ -132,13 +142,18 @@ def main():
             best_configs["list_configs"].append(s[0])
 
     # In ra màn hình các cấu hình tốt nhất
-    print(f"List best configurations: {best_configs}")
+    print(" ----------------- RESULT -----------------\n")
+    print("[*] LIST BEST CONFIG: ")
+    for best_config in best_configs["list_configs"]:
+        print(f"  -  {best_config} -> Number ATSC {sum(best_config)}/{len(best_config)}")
+    print(f"[*] SCORE: {best_configs['score']}")
+    
 
     # Lưu vào thư mục chạy
     _save(os.path.join(run_dir, "scores_history.json"), scores_history)
     _save(os.path.join(run_dir, "best_configs.json"), best_configs)
 
-    print("Run saved to:", run_dir)
+    print("[*] RESULT SAVED TO: ", run_dir)
 
 if __name__ == "__main__":
     main()

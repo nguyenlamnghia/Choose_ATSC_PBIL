@@ -5,4 +5,5 @@
     <lanes value="True"/>
     <!-- <insertion-density value="300.0"/> -->
     <insertion-rate value="5000"/>
+    <end value="1200"/>
 </configuration>

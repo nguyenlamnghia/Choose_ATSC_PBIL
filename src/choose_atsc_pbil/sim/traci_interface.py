@@ -39,6 +39,7 @@ class TraciIF:
             "-c", self.cfg["sumocfg"],
             "--step-length", str(self._step),
             "--lateral-resolution", str(self.cfg["lateral_resolution"]),
+            "--summary", "out_no.xml"
         ]
 
         add = self.cfg.get("add_file")

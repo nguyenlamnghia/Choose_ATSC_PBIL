@@ -88,7 +88,7 @@ class PBIL:
         return X
 
     def calculate_score(self, res):
-        return np.sum(res.get(self.cfg.evaluation, 0))
+        return np.mean(res.get(self.cfg.evaluation, 0))
 
     def update(self, best, worst: Optional[np.ndarray] = None):
         p = self.p

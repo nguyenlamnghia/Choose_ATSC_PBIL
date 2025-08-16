@@ -56,7 +56,7 @@ class MaxPressure(BaseController):
 
         # Update the plan with the optimized green times
         self._set_split(final_greentimes, self.iface.get_tls_splits(self.tls_id))
-        print(f"Time: {self.iface.get_time()} - ID: {self.tls_id} -> MAX PRESSURE: SET CYCLE {final_greentimes}")
+        # print(f"Time: {self.iface.get_time()} - ID: {self.tls_id} -> MAX PRESSURE: SET CYCLE {final_greentimes}")
 
         # reset cache
         for edge in self.edges:

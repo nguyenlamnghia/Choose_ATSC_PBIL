@@ -2,12 +2,14 @@
     "sumo": 
     {
         "runner": "libsumo",
-        "sumocfg": "data/input/sumo/test.sumocfg",
-        "net_file": "data/input/sumo/test.net.xml",
-        "rou_file": "data/input/sumo/test-demo.rou.xml",
-        "add_file": null,
+        "sumocfg": "data/input/sumo/PhuQuoc_v2/phuquoc.sumocfg",
+        "net_file": "data/input/sumo/PhuQuoc_v2/phuquoc.net.xml",
+        "rou_file": "data/input/sumo/PhuQuoc_v2/phuquoc-demo.rou.xml",
+        "detectors_file": "data/input/sumo/PhuQuoc_v2/e2.add.xml",
+        "net_info_file": "data/input/sumo/PhuQuoc_v2/net-info.json",
+        "candidates_file": "data/input/sumo/PhuQuoc_v2/tls-candidates.json",
         "begin": 0,
-        "end": 200,
+        "end": 50,
         "gui": false,
         "step_length": 0.1,
         "steps_delay": 100,
@@ -33,8 +35,8 @@
     },
     "pbil": 
     {
-        "Gmax": 10,
-        "population": 10,
+        "Gmax": 5,
+        "population": 5,
         "lr_pos": 0.01,
         "lr_neg": 0.075,
         "mutation_rate": 0.02,
@@ -52,5 +54,9 @@
     {
         "stdout": true,
         "save_every_gen": true
+    },
+    "evaluation": ["summary-output"],
+    "system": {
+        "max_processes": null
     }
 }

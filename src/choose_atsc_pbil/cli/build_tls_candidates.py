@@ -32,3 +32,4 @@ def main():
 
     candidates = build_tls_candidates(args.net)
     save_tls_candidates(candidates, args.output)
+    print("✅ Đã tạo: ", args.output)

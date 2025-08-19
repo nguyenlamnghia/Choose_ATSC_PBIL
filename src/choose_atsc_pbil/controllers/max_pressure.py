@@ -3,6 +3,9 @@ from .base_controller import BaseController
 from . import register
 import numpy as np
 import math
+import logging
+
+logger = logging.getLogger(__name__)
 
 @register("max_pressure")
 class MaxPressure(BaseController):
@@ -190,6 +193,7 @@ class MaxPressure(BaseController):
         # Perform action every cycle time
         if int(t) % int(self.cycle_time) == 0:
             # print(f"--- Cycle for TLS ID {self.tls_id}")
+            # logger.info("Cycle for TLS ID %s", self.tls_id)
             self._decide_action()
             
         # calculate next time action

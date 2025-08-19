@@ -38,8 +38,7 @@ class TraciIF:
             "--start",  # start simulation immediately
             "-c", self.cfg["sumocfg"],
             "--step-length", str(self._step),
-            "--lateral-resolution", str(self.cfg["lateral_resolution"]),
-            "--summary", "out_no.xml"
+            "--lateral-resolution", str(self.cfg["lateral_resolution"])
         ]
 
         add = self.cfg.get("add_file")

@@ -37,9 +37,9 @@ def main():
     # Thiết lập đối số
     ap = argparse.ArgumentParser()
     # ap.add_argument("--config", required=True)
-    ap.add_argument("--config", default="data/configs/config.json")
-    ap.add_argument("--net_info", default="data/input/net-infomation-example.json")
-    ap.add_argument("--candidates", default="data/input/tls-candidates.json")
+    ap.add_argument("--config", default="configs/config.json")
+    ap.add_argument("--net_info", default="data/input/sumo/PhuQuoc_v2/net-info.json")
+    ap.add_argument("--candidates", default="data/input/sumo/PhuQuoc_v2/tls-candidates.json")
     args = ap.parse_args()
 
     # Load thông tin

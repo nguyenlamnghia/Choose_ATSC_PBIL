@@ -11,6 +11,8 @@ packages = [{ include = "choose_atsc_pbil", from = "src" }]
 python = ">=3.12,<3.13"
 networkx = ">=3.5,<4.0"
 numpy = ">=2.3.2,<3.0.0"
+matplotlib = "^3.10.5"
+ipykernel = "^6.30.1"
 
 [tool.poetry.scripts]
 build-graph = "choose_atsc_pbil.cli.build_graph:main"
@@ -18,6 +20,7 @@ run-baselines = "choose_atsc_pbil.cli.run_baselines:main"
 run-custom = "choose_atsc_pbil.cli.run_custom:main"
 run-pbil = "choose_atsc_pbil.cli.run_pbil:main"
 run_pbil_multiprocess = "choose_atsc_pbil.cli.run_pbil_multiprocess:main"
+evaluation = "choose_atsc_pbil.cli.evaluation:main"
 build-net-info = "choose_atsc_pbil.cli.build_net_info:main"
 build-tls-candidates = "choose_atsc_pbil.cli.build_tls_candidates:main"
 

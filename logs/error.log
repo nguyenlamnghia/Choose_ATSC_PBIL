@@ -1,0 +1,323 @@
+2025-08-18 17:14:57 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:16:55 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:17:40 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:18:07 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:18:32 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:20:04 [ERROR] root: Error occurred while loading configuration: cannot access local variable 'args' where it is not associated with a value
+2025-08-18 17:22:00 [ERROR] root: Error occurred while running Baseline 2: [Errno 2] No such file or directory: '1data/input/sumo/PhuQuoc_v2/tls-candidates.json'
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-003 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-005 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-002 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-004 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-010 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-007 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-011 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-008 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:43 [WARNING] sim-001-001 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:44 [WARNING] sim-001-006 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-012 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:45 [WARNING] sim-001-009 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-017 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-015 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:50 [WARNING] sim-001-018 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-013 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:48 [WARNING] sim-001-016 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-18 17:50:46 [WARNING] sim-001-014 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:08:44 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Missing file: [Errno 2] No such file or directory: 'data/configs/config.json'
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 62, in main
+    cfg = _load(args.config)
+          ^^^^^^^^^^^^^^^^^^
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 15, in _load
+    with open(path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/configs/config.json'
+2025-08-19 08:09:02 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Missing file: [Errno 2] No such file or directory: 'data/input/net-infomation-example.json'
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 64, in main
+    net_info = _load(args.net_info)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 15, in _load
+    with open(path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/input/net-infomation-example.json'
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-2 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-3 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-9 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-7 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-5 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-6 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-16 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:22 [WARNING] Sim-1-4 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-8 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 24 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-14 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 124 not found in SUMO.
+2025-08-19 08:09:21 [WARNING] Sim-1-1 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:26 [WARNING] Sim-1-15 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:23 [WARNING] Sim-1-10 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:29 [WARNING] Sim-1-18 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-13 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:24 [WARNING] Sim-1-11 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:28 [WARNING] Sim-1-17 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 8 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 18 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:31 [WARNING] Sim-1-19 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 12 not found in SUMO.
+2025-08-19 08:09:25 [WARNING] Sim-1-12 choose_atsc_pbil.sim.sim_runner: TLS ID 63 not found in SUMO.
+2025-08-19 08:10:15 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Missing file: [Errno 2] No such file or directory: 'data/input/sumo/PhuQuoc_v2/net-info-example.json'
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 64, in main
+    net_info = _load(args.net_info)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 15, in _load
+    with open(path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/input/sumo/PhuQuoc_v2/net-info-example.json'
+2025-08-19 08:13:48 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Unhandled error in main()
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 83, in main
+    logger.info("----- Generation %d/%d: Starting -----", g + 1, pbil_cfg.Gmax)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2025-08-19 09:13:31 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Missing file: [Errno 2] No such file or directory: 'data/configs/config.json'
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 62, in main
+    cfg = _load(args.config)
+          ^^^^^^^^^^^^^^^^^^
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 15, in _load
+    with open(path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/configs/config.json'
+2025-08-19 09:59:48 [ERROR] MainProcess choose_atsc_pbil.cli.run_custom: Unhandled error in main()
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_custom.py", line 100, in main
+    processes=max_procs,
+              ^^^^^^^^^
+NameError: name 'max_procs' is not defined
+2025-08-19 16:06:49 [ERROR] SpawnPoolWorker-2 choose_atsc_pbil.cli.run_pbil: Process 1: Failed during simulation for x=[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1]
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 34, in _run_simulation
+    res = runner.run(mask)
+          ^^^^^^^^^^^^^^^^
+TypeError: SumoSimRunner.run() missing 1 required positional argument: 'evaluation'
+2025-08-19 16:06:49 [ERROR] SpawnPoolWorker-2 choose_atsc_pbil.cli.run_pbil: Process 2: Failed during simulation for x=[0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0]
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 34, in _run_simulation
+    res = runner.run(mask)
+          ^^^^^^^^^^^^^^^^
+TypeError: SumoSimRunner.run() missing 1 required positional argument: 'evaluation'
+2025-08-19 16:06:49 [ERROR] SpawnPoolWorker-2 choose_atsc_pbil.cli.run_pbil: Process 3: Failed during simulation for x=[0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 34, in _run_simulation
+    res = runner.run(mask)
+          ^^^^^^^^^^^^^^^^
+TypeError: SumoSimRunner.run() missing 1 required positional argument: 'evaluation'
+2025-08-19 16:06:49 [ERROR] SpawnPoolWorker-2 choose_atsc_pbil.cli.run_pbil: Process 5: Failed during simulation for x=[1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 34, in _run_simulation
+    res = runner.run(mask)
+          ^^^^^^^^^^^^^^^^
+TypeError: SumoSimRunner.run() missing 1 required positional argument: 'evaluation'
+2025-08-19 16:06:49 [ERROR] SpawnPoolWorker-8 choose_atsc_pbil.cli.run_pbil: Process 4: Failed during simulation for x=[1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1]
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 34, in _run_simulation
+    res = runner.run(mask)
+          ^^^^^^^^^^^^^^^^
+TypeError: SumoSimRunner.run() missing 1 required positional argument: 'evaluation'
+2025-08-19 16:06:49 [ERROR] MainProcess choose_atsc_pbil.cli.run_pbil: Unhandled error in main()
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\run_pbil.py", line 138, in main
+    best, worst = pick_best_worst(scores)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\core\selection.py", line 6, in pick_best_worst
+    best = by[0]
+           ~~^^^
+IndexError: list index out of range
+2025-08-19 16:18:02 [ERROR] MainProcess choose_atsc_pbil.cli.evaluation: Unhandled error in main()
+Traceback (most recent call last):
+  File "E:\VTS\ITS\Choose ATSC\Software\choose_ATSC_PBIL\src\choose_atsc_pbil\cli\evaluation.py", line 33, in main
+    if args.output:
+       ^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'output'
+2025-08-19 17:46:38 [ERROR] MainProcess choose_atsc_pbil.cli.evaluation: Error occurred while running Baseline 1: SumoSimRunner.run() got an unexpected keyword argument 'evaluation'

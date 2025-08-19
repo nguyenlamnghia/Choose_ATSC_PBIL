@@ -5,6 +5,9 @@ import numpy as np
 
 from .traci_interface import TraciIF
 from ..controllers import build as build_controller
+import logging
+
+logger = logging.getLogger(__name__)
 
 class SumoSimRunner:
     def __init__(self, sumo_cfg: dict, controller_plan: dict, pbil_cfg: dict, net_info: dict):
@@ -64,7 +67,7 @@ class SumoSimRunner:
             # Validate tls if tls not exists
             for tls_id in adaptive_mask.keys():
                 if tls_id not in tls_ids:
-                    raise ValueError(f" TLS ID {tls_id} not found in SUMO.")
+                    logger.warning("TLS ID %s not found in SUMO.", tls_id)
 
             # khởi tạo controller
             for tls_id in tls_ids:
@@ -95,7 +98,6 @@ class SumoSimRunner:
                 self.iface.step_to(next_time)
                 t = next_time
                 
-                # print(f"[*] Simulator Time: {t}")
 
                 if next_time == next_action:
                     # get tls_ids next update
@@ -106,10 +108,11 @@ class SumoSimRunner:
                         next_action_list[tls_id] = next_update
                 
                 if next_time == next_sampling:
-                    # print("--- Sample for data")
-                    # Collect data for PBIL
                     self._collect_data(collected_data)
 
             return collected_data
+        except Exception as e:
+            logger.exception("Error occurred during simulation: %s", e)
         finally:
             self.iface.close()
+

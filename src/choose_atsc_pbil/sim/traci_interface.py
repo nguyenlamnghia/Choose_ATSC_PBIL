@@ -47,6 +47,31 @@ class TraciIF:
         traci.start(sumoCmd)
         self._running = True
 
+    def start_evaluation(self, evaluations, output_dir: str):
+        self._ensure_import()
+
+        # Determine gui mode
+        sumo_gui = "sumo-gui" if self.cfg["gui"] else "sumo"
+
+        # Configure SUMO command
+        sumoCmd = [
+            sumo_gui,
+            "--no-warnings",
+            "--start",  # start simulation immediately
+            "-c", self.cfg["sumocfg"],
+            "--step-length", str(self._step),
+            "--lateral-resolution", str(self.cfg["lateral_resolution"])
+        ]
+
+        for eval_item in evaluations:
+            sumoCmd += [f"--{eval_item}", f"{output_dir}_{eval_item}.xml"]
+
+        add = self.cfg.get("add_file")
+        if add:
+            sumoCmd += ["-a", add]
+        traci.start(sumoCmd)
+        self._running = True
+
     def close(self):
         if self._running:
             traci.close()

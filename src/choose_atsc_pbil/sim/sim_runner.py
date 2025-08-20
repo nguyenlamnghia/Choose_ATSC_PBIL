@@ -116,3 +116,67 @@ class SumoSimRunner:
         finally:
             self.iface.close()
 
+    def run_evaluation(self, adaptive_mask: Dict[str,bool], evaluations: list, output_dir: str) -> dict:
+
+        # Init collected data
+        collected_data = {
+            "total_vehicle": [],
+            "average_occupancy": []
+        }
+
+        self.iface.start_evaluation(evaluations, output_dir)
+        try:
+            tls_ids = self.iface.list_tls_ids()
+
+            # Validate tls if tls not exists
+            for tls_id in adaptive_mask.keys():
+                if tls_id not in tls_ids:
+                    logger.warning("TLS ID %s not found in SUMO.", tls_id)
+
+            # khởi tạo controller
+            for tls_id in tls_ids:
+                ctrl = self._controller_for(tls_id, adaptive_mask)
+                self.controllers[tls_id] = ctrl
+
+                # start controller
+                self.controllers[tls_id].start()
+
+            # Get sample interval PBIL
+            sample_interval  = self.pbil_cfg["sample_interval"]
+
+            t = self.iface.begin_time()
+            end = self.iface.end_time()
+
+            # arr save tls time next action
+            next_action_list = {tls_id: t for tls_id in tls_ids}
+            while t < end:
+
+                # get next time sampling
+                next_sampling = (int(t) // int(sample_interval) + 1) * sample_interval
+
+                # get time next update
+                next_action = min(next_action_list.values())
+
+                # Choose next_sampling or next_action
+                next_time = min(next_sampling, next_action)
+                self.iface.step_to(next_time)
+                t = next_time
+                
+
+                if next_time == next_action:
+                    # get tls_ids next update
+                    next_tls_ids = [tls_id for tls_id, action_time in next_action_list.items() if action_time == next_action]
+
+                    for tls_id in next_tls_ids:
+                        next_update = self.controllers[tls_id].action(t)
+                        next_action_list[tls_id] = next_update
+                
+                if next_time == next_sampling:
+                    self._collect_data(collected_data)
+
+            return collected_data
+        except Exception as e:
+            logger.exception("Error occurred during simulation: %s", e)
+        finally:
+            self.iface.close()
+

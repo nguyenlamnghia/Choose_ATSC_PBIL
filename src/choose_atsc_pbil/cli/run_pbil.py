@@ -25,7 +25,7 @@ def _pool_worker_init(log_queue):
     worker_configurer(log_queue)
 
 
-def _run_simulation(proc_idx, x, scores, scores_history, candidates, runner, pbil: PBIL):
+def _run_simulation(proc_idx, x, scores_list, candidates, runner, pbil: PBIL):
     # Logger đã được cấu hình bởi _pool_worker_init
     logger = logging.getLogger(__name__)
 
@@ -36,8 +36,14 @@ def _run_simulation(proc_idx, x, scores, scores_history, candidates, runner, pbi
 
         logger.debug("Process %d: Completed -> Score: %.6f", proc_idx + 1, score)
 
-        scores.append((x, float(score)))
-        scores_history.append((x, float(score)))
+        # Got mean parameters from res to save (IF not the memory is over limit)
+        scores_list.append(
+            {
+                "config": list(x),
+                "score": float(score),
+                "res": {k: np.mean(v) for k, v in res.items()}
+            }
+        )
 
     except Exception:
         logger.error("Process %d: Failed during simulation for x=%s", proc_idx + 1, list(x), exc_info=True)
@@ -46,19 +52,26 @@ def _run_simulation(proc_idx, x, scores, scores_history, candidates, runner, pbi
 def main():
     # --- Cấu hình logging cho tiến trình chính ---
     # Lưu ý Windows dùng 'spawn', cần gọi setup_logging ở entry point
-    log_queue, listener = setup_multiprocess_logging()
-    logger = logging.getLogger(__name__)
-
 
     try:
-        logger.info("========== Starting choose ATSC using PBIL ==========")
-        logger.info("__________ Setting up configuration __________")
-
         # Thiết lập đối số
         ap = argparse.ArgumentParser()
         ap.add_argument("--config", default="configs/config.json")
         ap.add_argument("--output", default=None)
         args = ap.parse_args()
+
+        # Thiết lập thư mục chạy
+        if args.output:
+            run_dir = args.output
+        else:
+            run_dir = os.path.join("data", "results", "runs", datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+
+        # Setup logger
+        log_queue, listener = setup_multiprocess_logging(os.path.join(run_dir, "logs"))
+        logger = logging.getLogger(__name__)
+
+        logger.info("========== Starting choose ATSC using PBIL ==========")
+        logger.info("__________ Setting up configuration __________")
 
         # Load thông tin
         cfg = _load(args.config)
@@ -70,14 +83,13 @@ def main():
         candidates = _load(cfg["sumo"]["candidates_file"])["candidate_tls_ids"]
         logger.info("Loaded candidate TLS IDs from: %s", cfg["sumo"]["candidates_file"])
 
-        # Thiết lập thư mục chạy
-        if args.output:
-            run_dir = args.output
-        else:
-            run_dir = os.path.join("data", "results", "runs", datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-        os.makedirs(run_dir, exist_ok=True)
-        _save(os.path.join(run_dir, "run_config_snapshot.json"), cfg)
+        # Lưu snapshot cấu hình
+        _save(os.path.join(run_dir, "config", "run_config_snapshot.json"), cfg)
         logger.info("Setting up run directory: %s", run_dir.replace("\\", "/"))
+
+        # Tạo thư mục cho pbil
+        run_dir = os.path.join(run_dir, "pbil")
+        os.makedirs(run_dir, exist_ok=True)
 
         # Thiết lập PBIL & SUMO
         logger.info("Setting up PBIL and SUMO...")
@@ -90,17 +102,20 @@ def main():
 
         # Cache lịch sử điểm (chia sẻ giữa tiến trình)
         manager = mp.Manager()
-        scores_history = manager.list()  # [([1,0,1], 98.0), ...]
+        data_history = [] # [{"config": [1,0,1], "score": 98.0, "res": {}}, ...]
 
         best_hist = []
+        p_vec_history = [] # [[0.1,0.2],]
 
         for g in range(pbil_cfg.Gmax):
             logger.info("__________ Generation %d/%d: Starting __________", g + 1, pbil_cfg.Gmax)
 
             pop = pbil.sample_population()
+
+            # Xóa những cá thể trùng lặp
             pop = list(set(tuple(x.tolist()) for x in pop))  # unique
 
-            scores_list = manager.list()
+            scores_list = manager.list()    # [{"config": [1,0,1], "score": 98.0, "res": {}}, ...]
 
             # Tạo Pool với initializer để cấu hình logging cho từng worker
             with mp.Pool(
@@ -112,18 +127,18 @@ def main():
 
                 for i, x in enumerate(pop):
                     # Cache: nếu đã có trong lịch sử thì không đưa vào Pool
-                    for s in scores_history:
-                        if s[0] == x:
+                    for s in data_history:
+                        if s["config"] == x:
                             scores_list.append(s)
-                            logger.debug("Process %d: %s -> Skipped (cached) -> Score: %.6f", i + 1, list(x), s[1])
+                            logger.debug("Process %d: %s -> Skipped (cached) -> Score: %.6f", i + 1, list(x), s["score"])
                             break
-                    else:
-                        # Gửi job vào Pool
-                        logger.debug("Process %d: %s -> Starting...", i + 1, list(x))
-                        async_results.append(pool.apply_async(
-                            _run_simulation,
-                            args=(i, x, scores_list, scores_history, candidates, runner, pbil)
-                        ))
+                        
+                    # Gửi job vào Pool
+                    logger.debug("Process %d: %s -> Starting...", i + 1, list(x))
+                    async_results.append(pool.apply_async(
+                        _run_simulation,
+                        args=(i, x, scores_list, candidates, runner, pbil)
+                    ))
 
                 logger.info("Waiting for %d process(es) to complete...", len(async_results))
 
@@ -136,46 +151,52 @@ def main():
 
             # Best/Worst
             best, worst = pick_best_worst(scores)
-            logger.info("Best:  %s -> Score: %.6f", list(best[0]), best[1])
-            logger.info("Worst: %s -> Score: %.6f", list(worst[0]), worst[1])
+            logger.info("Best:  %s -> Score: %.6f", list(best["config"]), best["score"])
+            logger.info("Worst: %s -> Score: %.6f", list(worst["config"]), worst["score"])
 
             # Cập nhật vector xác suất
-            p_vec = pbil.update(np.array(best[0]), np.array(worst[0]))
+            p_vec = pbil.update(np.array(best["config"]), np.array(worst["config"]))
             logger.debug("Probability Vector: %s", p_vec)
             logger.info("Updated Probability Vector.")
 
-            best_hist.append(best[1])
+            best_hist.append(best["score"])
+            p_vec_history.append(p_vec.tolist())
 
-            # Lưu kết quả theo thế hệ
-            _save(os.path.join(run_dir, f"p_vec_gen_{g:03d}.json"), p_vec.tolist())
-            _save(os.path.join(run_dir, f"population_gen_{g:03d}.json"), [list(x) for x, _ in scores])
-            _save(os.path.join(run_dir, f"scores_gen_{g:03d}.json"), [{"x": list(x), "score": s} for x, s in scores])
+            # Add to data_history
+            for s in scores:
+                data_history.append(
+                    {
+                        "gen": g,
+                        "config": list(s["config"]),
+                        "score": float(s["score"]),
+                        "res": s["res"]
+                    }
+                )
+
+            # Tìm cấu hình tốt nhất
+            best_score = min(data_history, key=lambda x: x["score"])["score"]
+            best_configs = {
+                "score": best_score,
+                "list_configs": [x for x in data_history if x["score"] == best_score]
+            }
+
+            # Lưu kết quả
+            _save(os.path.join(run_dir, "p_vec_history.json"), p_vec_history)
+            _save(os.path.join(run_dir, "data_history.json"), data_history)
+            _save(os.path.join(run_dir, "best_configs.json"), best_configs)
 
             # Kiểm tra hội tụ
             if pbil.converged(best_hist, eps=pbil_cfg.convergence_eps):
                 logger.info("STOP: Convergence reached (eps=%.6f).", pbil_cfg.convergence_eps)
                 break
 
-        # Chuyển lịch sử thành list thường
-        scores_history = list(scores_history)
-
-        # Tìm cấu hình tốt nhất
-        best_score = min(scores_history, key=lambda x: x[1])[1]
-        best_configs = {
-            "score": best_score,
-            "list_configs": [x for x, s in scores_history if s == best_score]
-        }
-
         # In kết quả gọn gàng
         logger.info("__________ RESULT __________")
         logger.info("Best SCORE: %.6f", best_configs["score"])
-        for i, cfg_x in enumerate(best_configs["list_configs"]):
-            logger.info("Case %d: %s -> Number ATSC %d/%d",
-                        i + 1, list(cfg_x), sum(cfg_x), len(cfg_x))
+        for i, item in enumerate(best_configs["list_configs"]):
+            logger.info("Case %d: Gen %d: %s -> Number ATSC %d/%d",
+                        i + 1, item["gen"]+1, list(item["config"]), sum(item["config"]), len(item["config"]))
 
-        # Lưu kết quả cuối
-        _save(os.path.join(run_dir, "scores_history.json"), scores_history)
-        _save(os.path.join(run_dir, "best_configs.json"), best_configs)
         logger.info("Results saved to: %s", run_dir)
         logger.info("========== Choose ATSC using PBIL Completed ==========")
 

@@ -9,7 +9,7 @@
         "net_info_file": "data/input/sumo/PhuQuoc_v2/net-info.json",
         "candidates_file": "data/input/sumo/PhuQuoc_v2/tls-candidates.json",
         "begin": 0,
-        "end": 50,
+        "end": 1400,
         "gui": false,
         "step_length": 0.1,
         "steps_delay": 100,
@@ -35,8 +35,8 @@
     },
     "pbil": 
     {
-        "Gmax": 5,
-        "population": 5,
+        "Gmax": 10,
+        "population": 30,
         "lr_pos": 0.01,
         "lr_neg": 0.075,
         "mutation_rate": 0.02,
@@ -55,8 +55,8 @@
         "stdout": true,
         "save_every_gen": true
     },
-    "evaluation": ["summary-output"],
+    "evaluations": ["summary-output", "queue-output"],
     "system": {
-        "max_processes": null
+        "max_processes": 15
     }
 }

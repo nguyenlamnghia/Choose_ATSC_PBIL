@@ -87,6 +87,7 @@ class PBIL:
                 X[i] = self._trim_to_N_max(X[i], p)
         return X
 
+    # Calculate score
     def calculate_score(self, res):
         return np.mean(res.get(self.cfg.evaluation, 0))
 

@@ -10,7 +10,7 @@
         "candidates_file": "data/input/sumo/PhuQuoc_v2/tls-candidates.json",
         "begin": 0,
         "end": 1400,
-        "gui": false,
+        "gui": true,
         "step_length": 0.1,
         "steps_delay": 100,
         "lateral_resolution": 0.1

@@ -4,9 +4,9 @@ from dataclasses import asdict
 
 
 try:
-    # import traci
+    import traci
     from sumolib.net import readNet
-    import libsumo as traci
+    # import libsumo as traci
 except Exception as e:
     traci = None
 

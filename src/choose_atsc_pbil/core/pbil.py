@@ -107,11 +107,18 @@ class PBIL:
             if np.any(disagree):
                 p[disagree] = (1.0 - self.cfg.lr_neg) * p[disagree] + self.cfg.lr_neg * b[disagree].astype(float)
         # mutation - Đột biến
+        # if self.cfg.mutation_rate > 0.0 and self.cfg.mutation_step > 0.0:
+        #     m_mask = self.rng.random(self.C) < self.cfg.mutation_rate
+        #     if np.any(m_mask):
+        #         shifts = (self.rng.random(self.C) * 2.0 - 1.0) * self.cfg.mutation_step
+        #         p[m_mask] += shifts[m_mask]
+
+
+        # mutation - Đột biến 2
         if self.cfg.mutation_rate > 0.0 and self.cfg.mutation_step > 0.0:
             m_mask = self.rng.random(self.C) < self.cfg.mutation_rate
             if np.any(m_mask):
-                shifts = (self.rng.random(self.C) * 2.0 - 1.0) * self.cfg.mutation_step
-                p[m_mask] += shifts[m_mask]
+                p[m_mask] =p[m_mask]*(1-self.cfg.mutation_step)+ random.randint(0,1)*self.cfg.mutation_step
 
         # Lưu lại xác suất mới update
         self.p = np.clip(p, self.cfg.prob_min, self.cfg.prob_max)

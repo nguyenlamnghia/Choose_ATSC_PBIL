@@ -25,9 +25,13 @@ def _pool_worker_init(log_queue):
     worker_configurer(log_queue)
 
 
-def _run_simulation(proc_idx, x, scores_list, candidates, runner, pbil: PBIL):
+def _run_simulation(proc_idx, x, scores_list, candidates, cfg, net_info):
     # Logger đã được cấu hình bởi _pool_worker_init
     logger = logging.getLogger(__name__)
+
+    pbil_cfg = PBILConfig(**cfg["pbil"])
+    pbil = PBIL(pbil_cfg, candidates)
+    runner = SumoSimRunner(cfg["sumo"], cfg["controllers"], cfg["pbil"], net_info)
 
     try:
         mask = {tls_id: bool(xi) for tls_id, xi in zip(candidates, x)}
@@ -111,10 +115,8 @@ def main():
             logger.info("__________ Generation %d/%d: Starting __________", g + 1, pbil_cfg.Gmax)
 
             pop = pbil.sample_population()
-
             # Xóa những cá thể trùng lặp
             pop = list(set(tuple(x.tolist()) for x in pop))  # unique
-
             scores_list = manager.list()    # [{"config": [1,0,1], "score": 98.0, "res": {}}, ...]
 
             # Tạo Pool với initializer để cấu hình logging cho từng worker
@@ -137,14 +139,17 @@ def main():
                     logger.debug("Process %d: %s -> Starting...", i + 1, list(x))
                     async_results.append(pool.apply_async(
                         _run_simulation,
-                        args=(i, x, scores_list, candidates, runner, pbil)
+                        args=(i, x, scores_list, candidates, cfg, net_info)
                     ))
 
                 logger.info("Waiting for %d process(es) to complete...", len(async_results))
 
                 # Chờ tất cả job hoàn thành (và lan truyền exception nếu có)
                 for r in async_results:
-                    r.wait()
+                    try:
+                        r.get()  # sẽ raise nếu worker lỗi
+                    except Exception as e:
+                        logger.error("Worker failed: %s", e, exc_info=True)
 
             # Thu kết quả quần thể
             scores = list(scores_list)

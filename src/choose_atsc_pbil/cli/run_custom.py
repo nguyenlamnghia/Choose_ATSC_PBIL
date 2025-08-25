@@ -16,6 +16,7 @@ def main():
         ap = argparse.ArgumentParser()
         ap.add_argument("--config", default="configs/config.json")
         ap.add_argument("--output", default=None)
+        ap.add_argument("--name", required=True)
         args = ap.parse_args()
 
         # Thiết lập thư mục chạy
@@ -28,7 +29,7 @@ def main():
         setup_logging(os.path.join(run_dir, "logs"))
         logger = logging.getLogger(__name__)
 
-        logger.info("========== Starting Evaluation ==========")
+        logger.info("========== Starting CUSTOM ==========")
 
         cfg = _load_config(args.config)
         logger.info("Loaded configuration from: %s", args.config)
@@ -37,11 +38,9 @@ def main():
         logger.info("Loaded network information from: %s", cfg["sumo"]["net_info_file"])
 
         # Tạo thư mục cho evaluation
-        # run_dir = os.path.join(run_dir, "evaluation")
-        # os.makedirs(run_dir, exist_ok=True)
-        # with open(os.path.join(run_dir, "run_config_snapshot.json"), "w", encoding="utf-8") as f:
-        #     json.dump(cfg, f, indent=2)
-        # logger.info("Setting up run directory: %s", run_dir.replace("\\", "/"))
+        run_dir = os.path.join(run_dir, "evaluation")
+        os.makedirs(run_dir, exist_ok=True)
+        logger.info("Setting up run directory: %s", run_dir.replace("\\", "/"))
 
         # Initial SumoSimRunner
         runner = SumoSimRunner(cfg["sumo"], cfg["controllers"], cfg["pbil"], net_info)
@@ -52,16 +51,23 @@ def main():
 
         # Baseline 2: all ATSC
         try:
-            logger.info("Running Baseline 2: all ATSC")
+            logger.info("Running evaluation custom")
             candidate_tls_ids = _load_config(cfg["sumo"]["candidates_file"])["candidate_tls_ids"]
-            mask_candidate = {k: True for k in candidate_tls_ids}
-            r2 = runner.run_evaluation(mask_candidate, cfg["evaluations"], os.path.join(run_dir, "output_all_atsc"))
-            score2 = pbil.calculate_score(r2)
-            r2["score"] = score2
+            
+            solution = [1,1,0,1,0,1,1,1,1,1,1,1]
+            mask_candidate = {}
+            for i, tls_id in enumerate(candidate_tls_ids):
+                if solution[i] == 1:
+                    mask_candidate[tls_id] = True
+            # mask_candidate = {k: True for k in candidate_tls_ids}
+            
+            r = runner.run_evaluation(mask_candidate, cfg["evaluations"], os.path.join(run_dir, f"{args.name}"))
+            score2 = pbil.calculate_score(r)
+            r["score"] = score2
         except Exception as e:
-            logger.error("Error occurred while running Baseline 2: %s", e)
-        # with open(os.path.join(run_dir, "baseline_all_atsc.json"), "w", encoding="utf-8") as f:
-        #     json.dump(r2, f, indent=2)
+            logger.error("Error occurred while running custom: %s", e)
+        with open(os.path.join(run_dir, f"{args.name}.json"), "w", encoding="utf-8") as f:
+            json.dump(r, f, indent=2)
 
         logger.info("All baselines saved to: %s", run_dir.replace("\\", "/"))
         logger.info("========== Completed ==========")

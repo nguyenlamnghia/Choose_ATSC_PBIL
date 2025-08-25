@@ -104,6 +104,9 @@ class TraciIF:
     def get_list_edge(self):
         return self.traci.edge.getIDList()
 
+    def get_list_vehicle(self) -> List[str]:
+        return list(self.traci.vehicle.getIDList())
+
     def get_lanearea_occupancy(self, detector_id: str) -> float:
         return self.traci.lanearea.getLastIntervalOccupancy(detector_id)
 
